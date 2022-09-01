@@ -20,6 +20,7 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool IsInMemory=false;
         public MainWindow()
         {
             InitializeComponent();
@@ -86,9 +87,10 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=')|| TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Contains('=')|| TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*') && !IsInMemory)
                 {
                     TextDown.Text = "7";
+                    IsInMemory = true;
                 }
                 else
                 {
@@ -594,25 +596,25 @@ namespace Calculator
             {
                 case '+':
                     index = CalcText.IndexOf('+');
-                    a = Convert.ToDouble(CalcText.Substring(0,CalcText.Length-index+1));
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
                     b = Convert.ToDouble(CalcText.Substring(index + 1));
                     res = a + b;
                     break;
                 case '-':
                     index = CalcText.IndexOf('-');
-                    a = Convert.ToDouble(CalcText.Substring(0, CalcText.Length- index+1));
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
                     b = Convert.ToDouble(CalcText.Substring(index + 1));
                     res = a - b;
                     break;
                 case '/':
                     index = CalcText.IndexOf('/');
-                    a = Convert.ToDouble(CalcText.Substring(0, CalcText.Length- index+1));
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
                     b = Convert.ToDouble(CalcText.Substring(index + 1));
                     res = a / b;
                     break;
                 case '*':
                     index = CalcText.IndexOf('*');
-                    a = Convert.ToDouble(CalcText.Substring(0, CalcText.Length - index+1));
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
                     b = Convert.ToDouble(CalcText.Substring(index + 1));
                     res = a * b;
                     break;
