@@ -11,7 +11,7 @@
     <Style x:Key="StyleTextBoxDefault" TargetType="TextBox">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="DeepPink"/>
-        <Setter Property="FlowDirection" Value="RightToLeft"/>
+        <Setter Property="TextAlignment" Value="Right"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderThickness" Value="0"/>
     </Style>
