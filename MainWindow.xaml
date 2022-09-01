@@ -42,11 +42,11 @@
             <Button Grid.Row="3" Grid.Column="0" Content="1" Style="{StaticResource StyleButton}" Click="Button1_Click"/>
             <Button Grid.Row="3" Grid.Column="1" Content="2" Style="{StaticResource StyleButton}" Click="Button2_Click"/>
             <Button Grid.Row="3" Grid.Column="2" Content="3" Style="{StaticResource StyleButton}" Click="Button3_Click"/>
-            <Button Grid.Row="3" Grid.Column="3" Content="+" Style="{StaticResource StyleButton}"/>
+            <Button Grid.Row="3" Grid.Column="3" Content="+" Style="{StaticResource StyleButton}" Click="ButtonPlus_Click"/>
             <Button Grid.Row="4" Grid.Column="0" Content="%" Style="{StaticResource StyleButton}"/>
-            <Button Grid.Row="4" Grid.Column="1" Content="0" Style="{StaticResource StyleButton}"/>
+            <Button Grid.Row="4" Grid.Column="1" Content="0" Style="{StaticResource StyleButton}" Click="Button0_Click"/>
             <Button Grid.Row="4" Grid.Column="2" Content="," Style="{StaticResource StyleButton}"/>
-            <Button Grid.Row="4" Grid.Column="3" Content="=" Style="{StaticResource StyleButton}"/>
+            <Button Grid.Row="4" Grid.Column="3" Content="=" Style="{StaticResource StyleButton}" Click="ButtonEquals_Click"/>
 
         </Grid>
     </StackPanel>
