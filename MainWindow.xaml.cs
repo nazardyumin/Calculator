@@ -78,24 +78,17 @@ namespace Calculator
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                string tmp = "";
+                foreach (var item in TextDown.Text)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
+                    if (item != ' ')
+                    {
+                        tmp += item;
+                    }
                 }
                 if (TextUp.Text.Length>0)
                 {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
+                    
                     if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length-1))
                     {
                         TextDown.Text = "";
@@ -103,12 +96,34 @@ namespace Calculator
                     }
                     else
                     {
-                        TextDown.Text += "7";
+                        tmp += "7";
+                        TextDown.Text = "";
+                        int j = 0;
+                        for(int i=tmp.Length-1; i>=0; i--)
+                        {
+                            if( j%3==0 && j != 0)
+                            {
+                                TextDown.Text = TextDown.Text.Insert(0, " ") ;
+                            }
+                            TextDown.Text = TextDown.Text.Insert(0, tmp[i].ToString());
+                            j++;
+                        }
                     }
                 }
                 else
                 {
-                    TextDown.Text += "7";
+                    tmp += "7";
+                    TextDown.Text = "";
+                    int j = 0;
+                    for (int i = tmp.Length - 1; i >= 0; i--)
+                    {
+                        if (j % 3 == 0 && j!=0)
+                        {
+                            TextDown.Text = TextDown.Text.Insert(0, " ");
+                        }
+                        TextDown.Text = TextDown.Text.Insert(0, tmp[i].ToString());
+                        j++;
+                    }
                 }              
             }     
         }
@@ -780,16 +795,18 @@ namespace Calculator
                 var operation = TextUp.Text + tmp;
                 tmp=MathHelper(operation, '+');
                 TextUp.Text = tmp + "+";
-                TextDown.Text = "";
+                TextDown.Text="";
                 int i = 0;
                 foreach (var item in tmp)
                 {
-                    TextDown.Text += item;
                     if (i % 3 == 0)
                     {
                         TextDown.Text += " ";
                     }
+                    TextDown.Text += item;
+                    
                     i++;
+                    
                 }
                 if (TextDown.Text == "0")
                 {
@@ -821,15 +838,16 @@ namespace Calculator
                 var operation = TextUp.Text + tmp;
 
                 tmp = MathHelper(operation, TextUp.Text[^1]);
-                TextDown.Text = "";
+                TextDown.Text="";
                 int i = 0;
                 foreach (var item in tmp)
                 {
-                    TextDown.Text += item;
                     if (i % 3 == 0)
                     {
                         TextDown.Text += " ";
                     }
+                    TextDown.Text += item;
+
                     i++;
                 }
                 if (TextDown.Text=="0")
