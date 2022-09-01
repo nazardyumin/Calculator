@@ -20,12 +20,11 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool IsInMemory=false;
         public MainWindow()
         {
             InitializeComponent();
             TextUp.Text = "";
-            TextDown.Text = "0";
+            TextDown.Text = "0";           
         }
 
         private void ButtonCE_Click(object sender, RoutedEventArgs e)
@@ -87,10 +86,17 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=')|| TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*') && !IsInMemory)
+                if (TextUp.Text.Length>0)
                 {
-                    TextDown.Text = "7";
-                    IsInMemory = true;
+                    if (TextDown.Text == TextUp.Text.Substring(0, TextUp.Text.Length-1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "7";
+                    }
+                    else
+                    {
+                        TextDown.Text += "7";
+                    }
                 }
                 else
                 {
@@ -561,6 +567,7 @@ namespace Calculator
                 if (TextDown.Text == "0")
                 {
                     TextUp.Text = "";
+                    
                 }
             } 
             else
