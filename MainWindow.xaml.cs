@@ -88,7 +88,15 @@ namespace Calculator
                 }
                 if (TextUp.Text.Length>0)
                 {
-                    if (TextDown.Text == TextUp.Text.Substring(0, TextUp.Text.Length-1))
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length-1))
                     {
                         TextDown.Text = "";
                         TextDown.Text += "7";
@@ -149,9 +157,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "8";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp== TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "8";
+                    }
+                    else
+                    {
+                        TextDown.Text += "8";
+                    }
                 }
                 else
                 {
@@ -204,9 +228,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "9";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "9";
+                    }
+                    else
+                    {
+                        TextDown.Text += "9";
+                    }
                 }
                 else
                 {
@@ -259,9 +299,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "4";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "4";
+                    }
+                    else
+                    {
+                        TextDown.Text += "4";
+                    }
                 }
                 else
                 {
@@ -314,9 +370,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "5";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "5";
+                    }
+                    else
+                    {
+                        TextDown.Text += "5";
+                    }
                 }
                 else
                 {
@@ -369,9 +441,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "6";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "6";
+                    }
+                    else
+                    {
+                        TextDown.Text += "6";
+                    }
                 }
                 else
                 {
@@ -424,9 +512,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "1";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "1";
+                    }
+                    else
+                    {
+                        TextDown.Text += "1";
+                    }
                 }
                 else
                 {
@@ -479,9 +583,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "2";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "2";
+                    }
+                    else
+                    {
+                        TextDown.Text += "2";
+                    }
                 }
                 else
                 {
@@ -534,9 +654,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "3";
+                    string tmp = "";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item != ' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "3";
+                    }
+                    else
+                    {
+                        TextDown.Text += "3";
+                    }
                 }
                 else
                 {
@@ -544,91 +680,6 @@ namespace Calculator
                 }
             }
         }
-
-        private void ButtonDel_Click(object sender, RoutedEventArgs e)
-        {
-            TextDown.Text = TextDown.Text.Substring(0, TextDown.Text.Length-1);
-            if (TextDown.Text.Length == 0)
-            {
-                TextDown.Text = "0";
-            }
-        }
-
-        private void ButtonPlus_Click(object sender, RoutedEventArgs e)
-        {
-            if (TextUp.Text.Contains('='))
-            {
-                TextUp.Text = TextDown.Text;
-            }
-            if (TextUp.Text.Contains('+'))
-            {
-                var operation = TextUp.Text + TextDown.Text;
-                TextDown.Text=MathHelper(operation, '+');
-                if (TextDown.Text == "0")
-                {
-                    TextUp.Text = "";
-                    
-                }
-            } 
-            else
-            {
-                TextUp.Text = TextDown.Text + "+";
-            }
-        }
-        private void ButtonEquals_Click(object sender, RoutedEventArgs e)
-        {
-            if (TextUp.Text.Length>0)
-            {
-                if (TextUp.Text.Contains('='))
-                {
-                    TextUp.Text = TextDown.Text;
-                }
-                var operation = TextUp.Text + TextDown.Text;
-                TextDown.Text = MathHelper(operation, TextUp.Text[^1]);
-                if (TextDown.Text=="0")
-                {
-                    TextUp.Text = "";
-                }
-                else
-                {
-                    TextUp.Text = operation + "=";
-                }
-            }            
-        }
-        private string MathHelper(string CalcText, char key)
-        {
-            double a, b, res=0.0D;
-            int index;
-            switch (key)
-            {
-                case '+':
-                    index = CalcText.IndexOf('+');
-                    a = Convert.ToDouble(CalcText.Substring(0,index));
-                    b = Convert.ToDouble(CalcText.Substring(index + 1));
-                    res = a + b;
-                    break;
-                case '-':
-                    index = CalcText.IndexOf('-');
-                    a = Convert.ToDouble(CalcText.Substring(0,index));
-                    b = Convert.ToDouble(CalcText.Substring(index + 1));
-                    res = a - b;
-                    break;
-                case '/':
-                    index = CalcText.IndexOf('/');
-                    a = Convert.ToDouble(CalcText.Substring(0,index));
-                    b = Convert.ToDouble(CalcText.Substring(index + 1));
-                    res = a / b;
-                    break;
-                case '*':
-                    index = CalcText.IndexOf('*');
-                    a = Convert.ToDouble(CalcText.Substring(0,index));
-                    b = Convert.ToDouble(CalcText.Substring(index + 1));
-                    res = a * b;
-                    break;
-            }
-            return res.ToString();
-        }
-
         private void Button0_Click(object sender, RoutedEventArgs e)
         {
             if (TextDown.Text.Length == 11)
@@ -673,9 +724,25 @@ namespace Calculator
                 {
                     TextDown.Text += " ";
                 }
-                if (TextUp.Text.Contains('=') || TextUp.Text.Contains('+') || TextUp.Text.Contains('/') || TextUp.Text.Contains('*'))
+                if (TextUp.Text.Length > 0)
                 {
-                    TextDown.Text = "0";
+                    string tmp="";
+                    foreach (var item in TextDown.Text)
+                    {
+                        if (item!=' ')
+                        {
+                            tmp += item;
+                        }
+                    }
+                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
+                    {
+                        TextDown.Text = "";
+                        TextDown.Text += "0";
+                    }
+                    else
+                    {
+                        TextDown.Text += "0";
+                    }
                 }
                 else
                 {
@@ -683,5 +750,132 @@ namespace Calculator
                 }
             }
         }
+
+        private void ButtonDel_Click(object sender, RoutedEventArgs e)
+        {
+            TextDown.Text = TextDown.Text.Substring(0, TextDown.Text.Length-1);
+            if (TextDown.Text.Length == 0)
+            {
+                TextDown.Text = "0";
+            }
+        }
+
+        private void ButtonPlus_Click(object sender, RoutedEventArgs e)
+        {
+            string tmp = "";
+            foreach (var item in TextDown.Text)
+            {
+                if (item != ' ')
+                {
+                    tmp += item;
+                }
+            }
+
+            if (TextUp.Text.Contains('='))
+            {
+                TextUp.Text = tmp;
+            }
+            if (TextUp.Text.Contains('+'))
+            {
+                var operation = TextUp.Text + tmp;
+                tmp=MathHelper(operation, '+');
+                TextUp.Text = tmp + "+";
+                TextDown.Text = "";
+                int i = 0;
+                foreach (var item in tmp)
+                {
+                    TextDown.Text += item;
+                    if (i % 3 == 0)
+                    {
+                        TextDown.Text += " ";
+                    }
+                    i++;
+                }
+                if (TextDown.Text == "0")
+                {
+                    TextUp.Text = "";                   
+                }
+            } 
+            else
+            {
+                TextUp.Text = tmp + "+";
+            }
+        }
+        private void ButtonEquals_Click(object sender, RoutedEventArgs e)
+        {
+            string tmp = "";
+            foreach (var item in TextDown.Text)
+            {
+                if (item != ' ')
+                {
+                    tmp += item;
+                }
+            }
+
+            if (TextUp.Text.Length>0)
+            {
+                if (TextUp.Text.Contains('='))
+                {
+                    TextUp.Text = tmp;
+                }
+                var operation = TextUp.Text + tmp;
+
+                tmp = MathHelper(operation, TextUp.Text[^1]);
+                TextDown.Text = "";
+                int i = 0;
+                foreach (var item in tmp)
+                {
+                    TextDown.Text += item;
+                    if (i % 3 == 0)
+                    {
+                        TextDown.Text += " ";
+                    }
+                    i++;
+                }
+                if (TextDown.Text=="0")
+                {
+                    TextUp.Text = "";
+                }
+                else
+                {
+                    TextUp.Text = operation + "=";
+                }
+            }            
+        }
+        private string MathHelper(string CalcText, char key)
+        {
+            double a, b, res=0.0D;
+            int index;
+            switch (key)
+            {
+                case '+':
+                    index = CalcText.IndexOf('+');
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
+                    b = Convert.ToDouble(CalcText.Substring(index + 1));
+                    res = a + b;
+                    break;
+                case '-':
+                    index = CalcText.IndexOf('-');
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
+                    b = Convert.ToDouble(CalcText.Substring(index + 1));
+                    res = a - b;
+                    break;
+                case '/':
+                    index = CalcText.IndexOf('/');
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
+                    b = Convert.ToDouble(CalcText.Substring(index + 1));
+                    res = a / b;
+                    break;
+                case '*':
+                    index = CalcText.IndexOf('*');
+                    a = Convert.ToDouble(CalcText.Substring(0,index));
+                    b = Convert.ToDouble(CalcText.Substring(index + 1));
+                    res = a * b;
+                    break;
+            }
+            return res.ToString();
+        }
+
+        
     }
 }
