@@ -13,13 +13,13 @@
         <Setter Property="Background" Value="DeepPink"/>
         <Setter Property="FlowDirection" Value="RightToLeft"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
     </Style>
 
     <Style x:Key="StyleTextBoxMain" TargetType="TextBox" BasedOn="{StaticResource StyleTextBoxDefault}">
         <Setter Property="FontSize" Value="45"/>
         <Setter Property="FontWeight" Value="Heavy"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="5"/>
     </Style>
 
     <Style x:Key="StyleTextBoxPeripheral" TargetType="TextBox" BasedOn="{StaticResource StyleTextBoxDefault}">
