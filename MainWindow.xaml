@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Glam Calculator" Height="535" Width="325" ResizeMode="CanMinimize">
+        Title="Glam Calculator" Height="535" Width="325" ResizeMode="CanMinimize" DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"/>
     </Window.Resources>
     
     <StackPanel>
-        <TextBox Name="TextUp" Height="40" Style="{StaticResource StyleTextBoxPeripheral}"/>
-        <TextBox Name="TextDown" Height="80" Style="{StaticResource StyleTextBoxMain}"/>
+        <TextBox Name="TextUp" Height="40" Style="{StaticResource StyleTextBoxPeripheral}" Text="{Binding PeripheralText, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+        <TextBox Name="TextDown" Height="80" Style="{StaticResource StyleTextBoxMain}" Text="{Binding MainTextToScreen, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
         <Grid Height="380">
             <Grid.RowDefinitions>
                 <RowDefinition/>

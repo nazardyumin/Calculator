@@ -1,862 +1,609 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calculator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        private bool memory;
+        private string? _mainText;
+        private string? _peripheralText;
+        public string MainTextToScreen
+        {
+            get => AddSpaces(MainText);
+        }
+        public string MainText
+        {
+            get => _mainText!;
+            set
+            {
+                if (_mainText == value) return;
+                _mainText = value;
+                OnPropertyChanged(nameof(MainText));
+                OnPropertyChanged(nameof(MainTextToScreen));
+            }
+        }
+        public string PeripheralText
+        {
+            get => _peripheralText!;
+            set
+            {
+                if (_peripheralText == value)
+                {
+                    return;
+                }
+                _peripheralText = value;
+                OnPropertyChanged(nameof(PeripheralText));
+            }
+        }
         public MainWindow()
         {
+            MainText = "0";
+            PeripheralText = "";
+            memory = false;
             InitializeComponent();
-            TextUp.Text = "";
-            TextDown.Text = "0";           
         }
 
         private void ButtonCE_Click(object sender, RoutedEventArgs e)
         {
-            TextUp.Text = "";
-            TextDown.Text = "0";
-            TextDown.FontSize =45;
+            PeripheralText = "";
+            MainText = "0";
+            TextDown.FontSize = 45;
             TextDown.TextWrapping = TextWrapping.NoWrap;
         }
 
         private void ButtonC_Click(object sender, RoutedEventArgs e)
         {
-            TextDown.Text = "0";
+            MainText = "0";
             TextDown.FontSize = 45;
             TextDown.TextWrapping = TextWrapping.NoWrap;
         }
 
         private void Button7_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text=="0")
+            if (MainText == "0")
             {
-                TextDown.Text = "7";
+                MainText = "7";
             }
             else
             {
-                string tmp = "";
-                foreach (var item in TextDown.Text)
+                if (PeripheralText.Length>0 && !memory)
                 {
-                    if (item != ' ')
-                    {
-                        tmp += item;
-                    }
-                }
-                if (TextUp.Text.Length>0)
-                {
-                    
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length-1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "7";
-                    }
-                    else
-                    {
-                        tmp += "7";
-                        TextDown.Text = "";
-                        int j = 0;
-                        for(int i=tmp.Length-1; i>=0; i--)
-                        {
-                            if( j%3==0 && j != 0)
-                            {
-                                TextDown.Text = TextDown.Text.Insert(0, " ") ;
-                            }
-                            TextDown.Text = TextDown.Text.Insert(0, tmp[i].ToString());
-                            j++;
-                        }
-                    }
+                    MainText = "";
+                    MainText += "7";
+                    memory = true;
                 }
                 else
                 {
-                    tmp += "7";
-                    TextDown.Text = "";
-                    int j = 0;
-                    for (int i = tmp.Length - 1; i >= 0; i--)
-                    {
-                        if (j % 3 == 0 && j!=0)
-                        {
-                            TextDown.Text = TextDown.Text.Insert(0, " ");
-                        }
-                        TextDown.Text = TextDown.Text.Insert(0, tmp[i].ToString());
-                        j++;
-                    }
+                    MainText += "7";
                 }              
             }     
         }
 
         private void Button8_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "8";
+                MainText = "8";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp== TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "8";
-                    }
-                    else
-                    {
-                        TextDown.Text += "8";
-                    }
+                    MainText = "";
+                    MainText += "8";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "8";
+                    MainText += "8";
                 }
             }
         }
 
         private void Button9_Click(object sender, RoutedEventArgs e)
-        {           
-            if (TextDown.Text.Length == 11)
+        {
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "9";
+                MainText = "9";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1]!=' '&& TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "9";
-                    }
-                    else
-                    {
-                        TextDown.Text += "9";
-                    }
+                    MainText = "";
+                    MainText += "9";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "9";
+                    MainText += "9";
                 }
             }
         }
 
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "4";
+                MainText = "4";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "4";
-                    }
-                    else
-                    {
-                        TextDown.Text += "4";
-                    }
+                    MainText = "";
+                    MainText += "4";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "4";
+                    MainText += "4";
                 }
             }
         }
 
         private void Button5_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "5";
+                MainText = "5";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "5";
-                    }
-                    else
-                    {
-                        TextDown.Text += "5";
-                    }
+                    MainText = "";
+                    MainText += "5";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "5";
+                    MainText += "5";
                 }
             }
         }
 
         private void Button6_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "6";
+                MainText = "6";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "6";
-                    }
-                    else
-                    {
-                        TextDown.Text += "6";
-                    }
+                    MainText = "";
+                    MainText += "6";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "6";
+                    MainText += "6";
                 }
             }
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "1";
+                MainText = "1";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "1";
-                    }
-                    else
-                    {
-                        TextDown.Text += "1";
-                    }
+                    MainText = "";
+                    MainText += "1";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "1";
+                    MainText += "1";
                 }
             }
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "2";
+                MainText = "2";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "2";
-                    }
-                    else
-                    {
-                        TextDown.Text += "2";
-                    }
+                    MainText = "";
+                    MainText += "2";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "2";
+                    MainText += "2";
                 }
             }
         }
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "3";
+                MainText = "3";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp = "";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item != ' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "3";
-                    }
-                    else
-                    {
-                        TextDown.Text += "3";
-                    }
+                    MainText = "";
+                    MainText += "3";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "3";
+                    MainText += "3";
                 }
             }
         }
+
         private void Button0_Click(object sender, RoutedEventArgs e)
         {
-            if (TextDown.Text.Length == 11)
+            if (MainTextToScreen.Length == 11)
             {
                 TextDown.FontSize -= 9;
             }
-            if (TextDown.Text.Length == 15)
+            if (MainTextToScreen.Length == 15)
             {
                 TextDown.FontSize -= 7.5;
             }
-            if (TextDown.Text.Length == 19)
+            if (MainTextToScreen.Length == 19)
             {
                 TextDown.FontSize -= 5;
             }
-            if (TextDown.Text.Length == 23)
+            if (MainTextToScreen.Length == 23)
             {
                 TextDown.FontSize -= 3.5;
             }
-            if (TextDown.Text.Length >= 27)
+            if (MainTextToScreen.Length >= 27)
             {
                 TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
             }
-            if (TextDown.Text.Length == 54)
+            if (MainTextToScreen.Length == 54)
             {
                 TextDown.FontSize -= 3;
             }
-            if (TextDown.Text.Length == 95)
+            if (MainTextToScreen.Length == 95)
             {
                 TextDown.FontSize -= 4;
             }
-            if (TextDown.Text == "0")
+            if (MainText == "0")
             {
-                TextDown.Text = "0";
+                MainText = "0";
             }
             else
             {
-                if (TextDown.Text.Length == 3)
+                if (PeripheralText.Length > 0 && !memory)
                 {
-                    TextDown.Text += " ";
-                }
-                if (TextDown.Text.Length >= 7 && TextDown.Text[^1] != ' ' && TextDown.Text[^2] != ' ' && TextDown.Text[^3] != ' ')
-                {
-                    TextDown.Text += " ";
-                }
-                if (TextUp.Text.Length > 0)
-                {
-                    string tmp="";
-                    foreach (var item in TextDown.Text)
-                    {
-                        if (item!=' ')
-                        {
-                            tmp += item;
-                        }
-                    }
-                    if (tmp == TextUp.Text.Substring(0, TextUp.Text.Length - 1))
-                    {
-                        TextDown.Text = "";
-                        TextDown.Text += "0";
-                    }
-                    else
-                    {
-                        TextDown.Text += "0";
-                    }
+                    MainText = "";
+                    MainText += "0";
+                    memory = true;
                 }
                 else
                 {
-                    TextDown.Text += "0";
+                    MainText += "0";
                 }
             }
         }
 
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
-            TextDown.Text = TextDown.Text.Substring(0, TextDown.Text.Length-1);
-            if (TextDown.Text.Length == 0)
+            MainText = MainText.Substring(0, MainText.Length-1);
+            if (MainText.Length == 0)
             {
-                TextDown.Text = "0";
+                MainText = "0";
             }
         }
-
         private void ButtonPlus_Click(object sender, RoutedEventArgs e)
         {
-            string tmp = "";
-            foreach (var item in TextDown.Text)
+            if (PeripheralText.Contains('='))
             {
-                if (item != ' ')
-                {
-                    tmp += item;
-                }
+                PeripheralText = MainText;
+                memory = false;
             }
-
-            if (TextUp.Text.Contains('='))
+            if (PeripheralText.Contains('+'))
             {
-                TextUp.Text = tmp;
-            }
-            if (TextUp.Text.Contains('+'))
-            {
-                var operation = TextUp.Text + tmp;
-                tmp=MathHelper(operation, '+');
-                TextUp.Text = tmp + "+";
-                TextDown.Text="";
-                int i = 0;
-                foreach (var item in tmp)
+                var operation = PeripheralText + MainText;
+                MainText = MathHelper(operation, '+');
+                PeripheralText = MainText + "+";
+                if (MainText == "0")
                 {
-                    if (i % 3 == 0)
-                    {
-                        TextDown.Text += " ";
-                    }
-                    TextDown.Text += item;
-                    
-                    i++;
-                    
+                    PeripheralText = "";                   
                 }
-                if (TextDown.Text == "0")
-                {
-                    TextUp.Text = "";                   
-                }
+                memory = false;
             } 
             else
             {
-                TextUp.Text = tmp + "+";
+                PeripheralText = MainText + "+";
+                memory = false;
             }
         }
         private void ButtonEquals_Click(object sender, RoutedEventArgs e)
         {
-            string tmp = "";
-            foreach (var item in TextDown.Text)
+            if (PeripheralText.Length>0)
             {
-                if (item != ' ')
+                if (PeripheralText.Contains('='))
                 {
-                    tmp += item;
+                    PeripheralText = MainText;
+                    memory = false;
                 }
-            }
-
-            if (TextUp.Text.Length>0)
-            {
-                if (TextUp.Text.Contains('='))
+                var operation = PeripheralText + MainText;
+                MainText = MathHelper(operation, PeripheralText[^1]);               
+                if (MainText == "0")
                 {
-                    TextUp.Text = tmp;
-                }
-                var operation = TextUp.Text + tmp;
-
-                tmp = MathHelper(operation, TextUp.Text[^1]);
-                TextDown.Text="";
-                int i = 0;
-                foreach (var item in tmp)
-                {
-                    if (i % 3 == 0)
-                    {
-                        TextDown.Text += " ";
-                    }
-                    TextDown.Text += item;
-
-                    i++;
-                }
-                if (TextDown.Text=="0")
-                {
-                    TextUp.Text = "";
+                    PeripheralText = "";
+                    memory = false;
                 }
                 else
                 {
-                    TextUp.Text = operation + "=";
+                    PeripheralText = operation + "=";
+                    memory = false;
                 }
             }            
         }
@@ -894,6 +641,26 @@ namespace Calculator
             return res.ToString();
         }
 
-        
+        private string AddSpaces(string text)
+        {
+            string textWithSpaces = "";
+            int j = 0;
+            for (int i = text.Length - 1; i >= 0; i--)
+            {
+                if (j % 3 == 0 && j != 0)
+                {
+                    textWithSpaces = textWithSpaces.Insert(0, " ");
+                }
+                textWithSpaces = textWithSpaces.Insert(0, text[i].ToString());
+                j++;
+            }
+            return textWithSpaces;
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
