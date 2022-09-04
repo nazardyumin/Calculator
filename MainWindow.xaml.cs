@@ -644,8 +644,18 @@ namespace Calculator
         private string AddSpaces(string text)
         {
             string textWithSpaces = "";
+            int i;
             int j = 0;
-            for (int i = text.Length - 1; i >= 0; i--)
+            if (text.Contains(','))
+            {
+                i = text.IndexOf(',')-1;
+                textWithSpaces=text.Substring(i+1);
+            }
+            else
+            {
+                i = text.Length - 1;
+            }
+            for (; i >= 0; i--)
             {
                 if (j % 3 == 0 && j != 0)
                 {
@@ -661,6 +671,14 @@ namespace Calculator
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ButtonComma_Click(object sender, RoutedEventArgs e)
+        {
+            if (!MainText.Contains(','))
+            {
+                MainText += ",";
+            }          
         }
     }
 }
