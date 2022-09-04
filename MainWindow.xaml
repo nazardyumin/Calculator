@@ -38,7 +38,7 @@
             <Button Grid.Row="2" Grid.Column="0" Content="4" Style="{StaticResource StyleButton}" Click="Button4_Click"/>
             <Button Grid.Row="2" Grid.Column="1" Content="5" Style="{StaticResource StyleButton}" Click="Button5_Click"/>
             <Button Grid.Row="2" Grid.Column="2" Content="6" Style="{StaticResource StyleButton}" Click="Button6_Click"/>
-            <Button Grid.Row="2" Grid.Column="3" Content="-" Style="{StaticResource StyleButton}"/>
+            <Button Grid.Row="2" Grid.Column="3" Content="-" Style="{StaticResource StyleButton}" Click="ButtonMinus_Click"/>
             <Button Grid.Row="3" Grid.Column="0" Content="1" Style="{StaticResource StyleButton}" Click="Button1_Click"/>
             <Button Grid.Row="3" Grid.Column="1" Content="2" Style="{StaticResource StyleButton}" Click="Button2_Click"/>
             <Button Grid.Row="3" Grid.Column="2" Content="3" Style="{StaticResource StyleButton}" Click="Button3_Click"/>

@@ -620,7 +620,7 @@ namespace Calculator
                     res = a + b;
                     break;
                 case '-':
-                    index = CalcText.IndexOf('-');
+                    index = CalcText.LastIndexOf('-');
                     a = Convert.ToDouble(CalcText.Substring(0,index));
                     b = Convert.ToDouble(CalcText.Substring(index + 1));
                     res = a - b;
@@ -679,6 +679,36 @@ namespace Calculator
             {
                 MainText += ",";
             }          
+        }
+
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainText=="0")
+            {
+                PeripheralText = "0-";
+                return;
+            }
+            if (PeripheralText.Contains('='))
+            {
+                PeripheralText = MainText;
+                memory = false;
+            }
+            if (PeripheralText.Contains('-'))
+            {
+                var operation = PeripheralText + MainText;
+                MainText = MathHelper(operation, '-');
+                PeripheralText = MainText + "-";
+                if (MainText == "0")
+                {
+                    PeripheralText = "";
+                }
+                memory = false;
+            }
+            else
+            {
+                PeripheralText = MainText + "-";
+                memory = false;
+            }
         }
     }
 }
