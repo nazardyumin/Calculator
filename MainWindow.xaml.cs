@@ -534,6 +534,7 @@ namespace Calculator
             if (!MainText.Contains(','))
             {
                 MainText += ",";
+                memory = true;
             }          
         }   
     }
