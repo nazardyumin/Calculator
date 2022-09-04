@@ -49,49 +49,24 @@ namespace Calculator
 
         private void ButtonCE_Click(object sender, RoutedEventArgs e)
         {
-            PeripheralText = "";
+            if (PeripheralText.Contains('=')) PeripheralText = "";
             MainText = "0";
             TextDown.FontSize = 45;
             TextDown.TextWrapping = TextWrapping.NoWrap;
+            memory = false;
         }
 
         private void ButtonC_Click(object sender, RoutedEventArgs e)
         {
             MainText = "0";
+            PeripheralText = "";
             TextDown.FontSize = 45;
             TextDown.TextWrapping = TextWrapping.NoWrap;
+            memory = false;
         }
 
         private void Button7_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {           
             if (MainText == "0")
             {
                 MainText = "7";
@@ -112,35 +87,7 @@ namespace Calculator
         }
 
         private void Button8_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {          
             if (MainText == "0")
             {
                 MainText = "8";
@@ -161,35 +108,7 @@ namespace Calculator
         }
 
         private void Button9_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {            
             if (MainText == "0")
             {
                 MainText = "9";
@@ -210,35 +129,7 @@ namespace Calculator
         }
 
         private void Button4_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {           
             if (MainText == "0")
             {
                 MainText = "4";
@@ -259,35 +150,7 @@ namespace Calculator
         }
 
         private void Button5_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {           
             if (MainText == "0")
             {
                 MainText = "5";
@@ -308,35 +171,7 @@ namespace Calculator
         }
 
         private void Button6_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {           
             if (MainText == "0")
             {
                 MainText = "6";
@@ -357,35 +192,7 @@ namespace Calculator
         }
 
         private void Button1_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {          
             if (MainText == "0")
             {
                 MainText = "1";
@@ -406,35 +213,7 @@ namespace Calculator
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {           
             if (MainText == "0")
             {
                 MainText = "2";
@@ -456,34 +235,6 @@ namespace Calculator
 
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
             if (MainText == "0")
             {
                 MainText = "3";
@@ -504,35 +255,7 @@ namespace Calculator
         }
 
         private void Button0_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainTextToScreen.Length == 11)
-            {
-                TextDown.FontSize -= 9;
-            }
-            if (MainTextToScreen.Length == 15)
-            {
-                TextDown.FontSize -= 7.5;
-            }
-            if (MainTextToScreen.Length == 19)
-            {
-                TextDown.FontSize -= 5;
-            }
-            if (MainTextToScreen.Length == 23)
-            {
-                TextDown.FontSize -= 3.5;
-            }
-            if (MainTextToScreen.Length >= 27)
-            {
-                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
-            }
-            if (MainTextToScreen.Length == 54)
-            {
-                TextDown.FontSize -= 3;
-            }
-            if (MainTextToScreen.Length == 95)
-            {
-                TextDown.FontSize -= 4;
-            }
+        {           
             if (MainText == "0")
             {
                 MainText = "0";
@@ -564,24 +287,136 @@ namespace Calculator
         {
             if (PeripheralText.Contains('='))
             {
-                PeripheralText = MainText;
+                PeripheralText = MainText + "+";
                 memory = false;
+                return;
             }
             if (PeripheralText.Contains('+'))
             {
+                if (MainText == "0")
+                {
+                    MainText = PeripheralText.Remove(PeripheralText.Length - 1, 1);
+                    return;
+                }                   
                 var operation = PeripheralText + MainText;
                 MainText = MathHelper(operation, '+');
                 PeripheralText = MainText + "+";
-                if (MainText == "0")
-                {
-                    PeripheralText = "";                   
-                }
                 memory = false;
             } 
             else
             {
-                PeripheralText = MainText + "+";
+                if (MainText.Length > 0 && PeripheralText.Length > 0)
+                {
+                    var operation = PeripheralText + MainText;
+                    PeripheralText = MathHelper(operation, PeripheralText[^1]) + "+";
+                    memory = false;
+                }
+                else
+                {
+                    PeripheralText = MainText + "+";
+                    memory = false;
+                }              
+            }
+        }
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainText == "0")
+            {
+                PeripheralText = "0-";
+                return;
+            }
+            if (PeripheralText.Contains('='))
+            {
+                PeripheralText = MainText + "-";
                 memory = false;
+                return;
+            }
+            if (PeripheralText.Contains('-'))
+            {
+                var operation = PeripheralText + MainText;
+                MainText = MathHelper(operation, '-');
+                PeripheralText = MainText + "-";
+                memory = false;
+            }
+            else
+            {
+                if (MainText.Length > 0 && PeripheralText.Length > 0)
+                {
+                    var operation = PeripheralText + MainText;
+                    PeripheralText = MathHelper(operation, PeripheralText[^1]) + "-";
+                    memory = false;
+                }
+                else
+                {
+                    PeripheralText = MainText + "-";
+                    memory = false;
+                }
+            }
+        }
+        private void ButtonMultiply_Click(object sender, RoutedEventArgs e)
+        {
+            if (PeripheralText.Contains('='))
+            {
+                PeripheralText = MainText + "*";
+                memory = false;
+                return;
+            }
+            if (PeripheralText.Contains('*'))
+            {
+                if (MainText == "0")
+                {
+                    MainText = PeripheralText.Remove(PeripheralText.Length - 1, 1);
+                    return;
+                }
+                var operation = PeripheralText + MainText;
+                MainText = MathHelper(operation, '*');
+                PeripheralText = MainText + "*";
+                memory = false;
+            }
+            else
+            {
+                if (MainText.Length > 0 && PeripheralText.Length > 0)
+                {
+                    var operation = PeripheralText + MainText;
+                    PeripheralText = MathHelper(operation, PeripheralText[^1]) + "*";
+                    memory = false;
+                }
+                else
+                {
+                    PeripheralText = MainText + "*";
+                    memory = false;
+                }
+            }
+        }
+        private void ButtonDevide_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainText == "0") return;
+            if (PeripheralText.Contains('='))
+            {
+                PeripheralText = MainText + "/";
+                memory = false;
+                return;
+            }
+            if (PeripheralText.Contains('/'))
+            {
+                var operation = PeripheralText + MainText;
+                MainText = MathHelper(operation, '/');
+                PeripheralText = MainText + "/";
+                memory = false;
+            }
+            else
+            {
+                if (MainText.Length > 0 && PeripheralText.Length > 0)
+                {
+                    var operation = PeripheralText + MainText;
+                    PeripheralText = MathHelper(operation, PeripheralText[^1]) + "/";
+                    memory = false;
+                }
+                else
+                {
+                    PeripheralText = MainText + "/";
+                    memory = false;
+                }
             }
         }
         private void ButtonEquals_Click(object sender, RoutedEventArgs e)
@@ -663,7 +498,28 @@ namespace Calculator
                 }
                 textWithSpaces = textWithSpaces.Insert(0, text[i].ToString());
                 j++;
+            }           
+            if (textWithSpaces.Length >0 && textWithSpaces.Length<=11)
+            {
+                TextDown.FontSize=45;
             }
+            else if (textWithSpaces.Length > 11 && textWithSpaces.Length <= 13)
+            {
+                TextDown.FontSize = 39;
+            }
+            else if (textWithSpaces.Length > 13 && textWithSpaces.Length <= 15)
+            {
+                TextDown.FontSize = 33;
+            }
+            else if (textWithSpaces.Length > 15 && textWithSpaces.Length <= 20)
+            {
+                TextDown.FontSize = 27;
+            }
+            else if (textWithSpaces.Length > 20 && textWithSpaces.Length <= 30)
+            {
+                TextDown.FontSize = 21;
+                TextDown.TextWrapping = TextWrapping.WrapWithOverflow;
+            }           
             return textWithSpaces;
         }
 
@@ -679,36 +535,6 @@ namespace Calculator
             {
                 MainText += ",";
             }          
-        }
-
-        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainText=="0")
-            {
-                PeripheralText = "0-";
-                return;
-            }
-            if (PeripheralText.Contains('='))
-            {
-                PeripheralText = MainText;
-                memory = false;
-            }
-            if (PeripheralText.Contains('-'))
-            {
-                var operation = PeripheralText + MainText;
-                MainText = MathHelper(operation, '-');
-                PeripheralText = MainText + "-";
-                if (MainText == "0")
-                {
-                    PeripheralText = "";
-                }
-                memory = false;
-            }
-            else
-            {
-                PeripheralText = MainText + "-";
-                memory = false;
-            }
-        }
+        }   
     }
 }

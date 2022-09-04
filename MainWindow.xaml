@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Glam Calculator" Height="535" Width="325" ResizeMode="CanMinimize" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+        Title="Glam Calculator" Height="535" Width="325" ResizeMode="CanMinimize" DataContext="{Binding RelativeSource={RelativeSource Self}}" Icon="icon.png
+        ">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"/>
     </Window.Resources>
@@ -30,11 +31,11 @@
             <Button Grid.Row="0" Grid.Column="0" Content="CE" Style="{StaticResource StyleButton}" Click="ButtonCE_Click"/>
             <Button Grid.Row="0" Grid.Column="1" Content="C" Style="{StaticResource StyleButton}" Click="ButtonC_Click"/>
             <Button Grid.Row="0" Grid.Column="2" Content="Del" Style="{StaticResource StyleButton}" Click="ButtonDel_Click"/>
-            <Button Grid.Row="0" Grid.Column="3" Content="/" Style="{StaticResource StyleButton}"/>
+            <Button Grid.Row="0" Grid.Column="3" Content="/" Style="{StaticResource StyleButton}" Click="ButtonDevide_Click"/>
             <Button Grid.Row="1" Grid.Column="0" Content="7" Style="{StaticResource StyleButton}" Click="Button7_Click"/>
             <Button Grid.Row="1" Grid.Column="1" Content="8" Style="{StaticResource StyleButton}" Click="Button8_Click"/>
             <Button Grid.Row="1" Grid.Column="2" Content="9" Style="{StaticResource StyleButton}" Click="Button9_Click"/>
-            <Button Grid.Row="1" Grid.Column="3" Content="х" Style="{StaticResource StyleButton}"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="х" Style="{StaticResource StyleButton}" Click="ButtonMultiply_Click"/>
             <Button Grid.Row="2" Grid.Column="0" Content="4" Style="{StaticResource StyleButton}" Click="Button4_Click"/>
             <Button Grid.Row="2" Grid.Column="1" Content="5" Style="{StaticResource StyleButton}" Click="Button5_Click"/>
             <Button Grid.Row="2" Grid.Column="2" Content="6" Style="{StaticResource StyleButton}" Click="Button6_Click"/>
